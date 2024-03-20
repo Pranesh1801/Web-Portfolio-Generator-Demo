@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <link rel="stylesheet" href = "Cetaceans_WGAI.css" type="text/css">
+        <script>
+                function appendToConfig() {
+                  const name = document.getElementById('name').value;
+                  const profession = document.getElementById('profession').value;
+                  const experience = document.getElementById('About_you').value;
+                  const experience = document.getElementById('experience').value;
+                  const skills = document.getElementById('skills').value;
+                  const certifications = document.getElementById('cetifications').value;
+                  const projects = document.getElementById('projects').value;
+                  const profile = document.getElementById('profile').value;
+                  const mobile = document.getElementById('mobile').value;
+                  const email = document.getElementById('email').value;
+                  const bgclr = document.getElementById('bgclr').value;
+                  const txtclr = document.getElementById('txtclr').value;
+                  const font = document.getElementById('font').value;
+            
+                  var data = {
+                    "name": name,
+                    "profession": profession,
+                    "experience": experience,
+                    "skill1": skill1,
+                    "skill2": skill2,
+                    "skill3": skill3,
+                    "profile": profile,
+                    "mobile": mobile,
+                    "email": email,
+                    "bgclr": bgclr,
+                    "txtclr": txtclr,
+                    "font": font
+                  };
+            
+                  var json = JSON.stringify(data);
+                  var blob = new Blob([json], { type: "application/json" });
+            
+                  var a = document.createElement("a");
+                  a.href = URL.createObjectURL(blob);
+                  a.download = "doop.json";
+                  a.click();
+                }
+            
+                window.addEventListener("DOMContentLoaded", function() {
+                  document.getElementById("submitButton").addEventListener("click", appendToConfig);
+                });
+            
+                function limitWords() {
+                  var input = document.getElementById("myInput");
+                  var words = input.value.split(" ");
+                  
+                  if (words.length > 100) {
+                    words = words.slice(0, 100);
+                    input.value = words.join(" ");
+                  }
+                }
+    var Survey_options = document.getElementById('Survey_options')
+    var add_more_fields = document.getElementById('add_more_fields')
+    var remove_fields = document.getElementById('remove_fields')
+    add_more_fields.onclick = function(){
+        var newField =  document.createElement('input')
+        newField.setAttribute('type','text')
+        newField.setAttribute('name','Survey_options[]')
+        newField.setAttribute('class' , 'Survey_options')
+        newField.setAttribute('siz','50')
+        newField.setAttribute('placeholder','Another Field')
+    }
+    remove_fields.onclick = function(){
+        var input_tags = Survey_options.getElementsByTagName('input');
+        if(input_tags.length > 2){
+            Survey_options.removeChild(input_tags[(input_tags.length -1)]);
+
+        }
+    }
+
+    </script>
+    </head>
+    <title>Web Portfolio Generator</title>
+    <body>
+        <div class="xyz">
+            <h1>Portfolio GenAI</h1>
+        </div>
+        <form id="msform">
+            <fieldset>
+                <h2 class="fs-subtitle">Fill in the details for your portfolio website</h2>
+
+            <div id="Survey_options">
+            <input type="text" id="name" placeholder="Name" name="name" required><br>
+        
+            <input type="text" id="profession" name="profession" placeholder="Profession" required><br>
+
+            <input type="text" id="About_you" onkeyup="limitWords()" placeholder="About you (Less than 100 words)" name="About_you" required><br>
+
+            <input type="text" id="experience" name="experience" placeholder="Work Experience" required><br>
+            
+            <input type="text" id="experience2" name="exp2" placeholder="Add more">
+
+            <div class="controls">
+                <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
+                <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove Field</a>
+            </div>
+
+            <input type="text" id="skills" placeholder="Skills" name="skill1" required><br>
+
+            <input type="text" id="certifications" placeholder="Certifications" name="certifications" required><br>
+
+            <input type="text" id="projects" placeholder="Projects" name="projects" required><br>
+
+            <input type="text" id="profile" placeholder="Profile ids" name="profile" required><br>
+
+            <input type="text" id="mobile" placeholder="Mobile Number" name="mobile" required><br>
+        
+            <input type="text" id="email" placeholder="E-mail ID" name="email" required><br>
+
+            <label for="bgclr">Background Color:</label>
+            <input type="color" id="bgclr" name="bgclr" required><br>
+        
+            <input type="color" id="txtclr" placeholder="Background Colour" name="txtclr" required><br>
+
+            <label for="font">Font:</label>
+            <select id="font" name="font" required>
+              <option value="Verdana, sans-serif">Verdana</option>
+              <option value="Times New Roman, serif">Times New Roman</option>
+              <option value="Courier New, monospace">Courier New</option>
+            </select>
+
+            <button class="submit" type="submit" name="login" onclick="myFunction ()">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+         
+    </body>
+    
+</html>

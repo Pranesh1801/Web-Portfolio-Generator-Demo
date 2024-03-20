@@ -1,0 +1,21 @@
+form {
+    color: black;
+    font-size: 16px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Handlee', cursive;
+    position: relative;
+}
+.xyz {
+  color: white;
+  font-family: 'Handlee', cursive;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: large;
+  background-color:rgb(0, 0, 0);
+  padding: 20px 150px;
+}
